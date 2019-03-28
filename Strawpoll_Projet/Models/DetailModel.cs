@@ -12,8 +12,20 @@ namespace Strawpoll_Projet.Models
         public string Reponse2 { get; private set; }
         public string Reponse3 { get; private set; }
         public bool ChoixMultiple { get; private set; }
-        public int votant { get; private set; }
+        public int Votant { get; private set; }
 
+        public DetailModel(string question, string reponse1, string reponse2, string reponse3, bool choixMultiple, int votant)
+        {
+            this.Question = question;
+            this.Reponse1 = reponse1;
+            this.Reponse2 = reponse2;               //Constructeur  
+            this.Reponse3 = reponse3;
+            this.ChoixMultiple = choixMultiple;
+            this.Votant = votant;
+        }
     }
+
+
+    
 
 }
