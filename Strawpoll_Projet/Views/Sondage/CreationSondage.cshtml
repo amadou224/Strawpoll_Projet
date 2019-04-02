@@ -17,47 +17,7 @@
     <h1 style="text-align:center; margin-top:5% "> CREATION SONDAGE </h1>
 
 
-    <!--- <form style="margin-left:20%; margin-right:20%">
-         <div class="form-row">
-
-             <label for="Votre question ">QUESTION</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre Question">
-
-         </div>
-         <div class="form-row">
-             <label for="Votre question ">Réponse 1</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre prémière réponse">
-
-         </div>
-
-         <div class="form-row">
-
-             <label for="Votre question ">Réponse 2</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre deuxième réponse">
-
-         </div>
-         <div class="form-row">
-
-             <label for="Votre question ">Réponse 3</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre  réponse">
-
-         </div>
-
-         <div class="form-group form-check" style="margin-top:3%">
-             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-
-
-             <label class="form-check-label" for="exampleCheck1">Choix multiple</label>
-         </div>
-
-
-
-
-
-
-         <button type="submit" class="btn btn-primary">Créer Sondage</button>
-     </form>
-        -->
+   
     <form style="margin-left:20%; margin-right:20%">
         <div class="form-group">
             <label for="formGroupExampleInput">QUESTION</label>
@@ -88,12 +48,18 @@
 
 
 
-        <button type="submit" class="btn btn-primary">Créer Sondage</button>
+        <!---  <button type="submit" class="btn btn-primary">  -->
+
+            <a type="button"class="btn btn-primary" href="@Url.Action("ChoixVotant")">
+
+                Créer Sondage
+                </a>
+        
     </form>
 
     <div>
     </div>
-    <footer style="margin-top:7%">
+    <footer style="margin-top:4%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
 

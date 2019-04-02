@@ -41,5 +41,18 @@ namespace Strawpoll_Projet.Controllers
             return View();                      // Votre vote a été pris en charge 
         }
 
+
+        public ActionResult ResultatVote()
+        {
+            return View();
+        }
+
+
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+        
+
     }
 }

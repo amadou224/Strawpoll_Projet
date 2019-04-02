@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\DetailModel.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Sondage\Vote.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Sondage\ContactUs.cshtml" />
+    <Content Include="Views\Sondage\ResultatVote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
