@@ -10,25 +10,25 @@ namespace Strawpoll_Projet.Controllers
     {
         // GET: Sondage
         public ActionResult PageDeGarde()
-        {                                           // PAGE D'ACCEUIL 
+        {                                           //PAGE D'ACCEUIL 
             return View();
         }
 
         public ActionResult CreationSondage()
         {
-            return View();                              // Creation Sondage avec les questions
+            return View();                         //Creation Sondage avec les questions
         }
 
         public ActionResult ChoixVotant()
         {
-            return View();                      // choix Votant avec les 3 liens
+            return View();                       //choix Votant avec les 3 liens
 
 
         }
 
         public ActionResult Vote()
         {
-            return View();                      // vote en cours
+            return View();                      //Vote en cours
 
 
         }
