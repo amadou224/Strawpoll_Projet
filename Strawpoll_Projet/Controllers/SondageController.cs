@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Strawpoll_Projet.Models;
+
 
 namespace Strawpoll_Projet.Controllers
 {
@@ -14,8 +16,9 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage()
+        public ActionResult CreationSondage() //(string question, string reponse1, string reponse2, string reponse3,bool choix)
         {
+            //DetailModel sondage = DataAccess.CreerNouveauSondage(question, reponse1, reponse2, reponse3, choix);
             return View();                         //Creation Sondage avec les questions
         }
 
