@@ -13,9 +13,9 @@ namespace Strawpoll_Projet.Models
         public string Reponse2 { get; private set; }
         public string Reponse3 { get; private set; }
         public bool Choix { get; private set; }
-       // public int Votant { get; private set; }
+       
 
-        public DetailModel(int idSondage ,string question, string reponse1, string reponse2, string reponse3, bool choix/* int votant */)
+        public DetailModel(int idSondage ,string question, string reponse1, string reponse2, string reponse3, bool choix)
         {
             this.ID = idSondage;
             this.Question = question;
@@ -23,7 +23,7 @@ namespace Strawpoll_Projet.Models
             this.Reponse2 = reponse2;               // Constructeur  
             this.Reponse3 = reponse3;
             this.Choix = choix;
-          //  this.Votant = votant;
+        
         }
     }
 

@@ -32,17 +32,53 @@ namespace Strawpoll_Projet.Controllers
 
 
         }
-
-        public ActionResult Vote()
-        {
-            return View();                      //Vote en cours
-
-
+        // View Vote utiliser cette action pour faire appel a ma vieux cshtml Vote dans le @model 
+        public ActionResult Vote(int idSondage)
+        { 
+                if (DataAccess.PageDeVote(idSondage,out DatailModel sondage))
+                {
+                   return View();  
+                }
+                else 
+                {
+                 string messageErreur ="Problème pour trouver le sondage en BDD";
+                    return RedirectToAction("Erreur",new {messageErreur = messageErreur});
+                }
+   
         }
+
+      /*   public ActionResult ConfirmationLecture(int idLivre)
+        {          
+            if (DataAccess.RecupererConfirmationLectureModel(idLivre, out Livre model))
+            {
+                ConfirmationLectureModel livreConfirme = new ConfirmationLectureModel(model);               
+                return View(livreConfirme);
+            }
+            else
+            {
+                string messageErreur = "Probleme base de donnée en lecture Livre";
+                return RedirectToAction("Erreur", new { messageErreur = messageErreur} );
+            }
+            
+        }
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public ActionResult EnregistrementVote()
         {
-            return View();                      // Votre vote a été pris en charge 
+            return View();                    
         }
 
 
