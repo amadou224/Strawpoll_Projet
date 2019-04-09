@@ -129,6 +129,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Sondage\ContactUs.cshtml" />
     <Content Include="Views\Sondage\ResultatVote.cshtml" />
+    <Content Include="Views\Shared\DipositionGenerale.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

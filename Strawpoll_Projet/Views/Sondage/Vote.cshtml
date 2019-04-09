@@ -1,5 +1,8 @@
-﻿
+﻿@using Strawpoll_Projet.Models
+@model creationsondage
 @{
+    /**/
+
     ViewBag.Title = "ContactUs";
 }
 
@@ -18,16 +21,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
-  
+    <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
+    <form style="margin-left:20%; margin-right:20% ; margin-top:2%" )>
+
+        <input class="form-control" type="text" placeholder="Question" readonly>
+        <div class="form-group form-check" style="margin-top:3%">
+
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Question" />
+            <label class="form-check-label" for="exampleCheck1">reponse1</label>
+        </div>
+        <div class="form-group form-check" style="margin-top:3%">
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Reponse2</label>
+        </div>
+        <div class="form-group form-check" style="margin-top:3%">
+
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Reponse3</label>
+        </div>
+
+        <input type="submit" value=" VOTE">
+
+    </form>
 
     <footer style="margin-top:20%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
-
-
     </footer>
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

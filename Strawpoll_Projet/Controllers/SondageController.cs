@@ -16,10 +16,10 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage(string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
+        public ActionResult CreationSondage(int idSondage, string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
         {
             bool choix = Choixmultiple.GetValueOrDefault(false);
-            DetailModel sondage = new DetailModel(question, reponse1, reponse2, reponse3, choix);
+            DetailModel sondage = new DetailModel(idSondage,question, reponse1, reponse2, reponse3, choix);
             creationsondage Sondage = new creationsondage(sondage);
             int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
            
