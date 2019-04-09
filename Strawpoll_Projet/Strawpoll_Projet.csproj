@@ -108,6 +108,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\creationsondage.cs" />
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\Result.cs" />
@@ -120,7 +121,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Sondage\PageDeGarde.cshtml" />
-    <Content Include="Views\Sondage\CreationSondage.cshtml" />
+    <Content Include="Views\Sondage\FormulaireCreation.cshtml" />
     <Content Include="Views\Sondage\ChoixVotant.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

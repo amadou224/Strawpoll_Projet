@@ -18,49 +18,41 @@
 
 
    
-    <form style="margin-left:20%; margin-right:20%">
+    <form style="margin-left:20%; margin-right:20%" method="post" action="@Url.Action("CreationSondage")">
         <div class="form-group">
             <label for="formGroupExampleInput">QUESTION</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Votre question">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Votre question"name="question">
         </div>
 
         <div class="form-group">
             <label for="formGroupExampleInput2">Réponse 1</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre prémière reponse">
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre prémière reponse"name="reponse1">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Réponse 2</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre deuxième reponse">
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre deuxième reponse"name="reponse2">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Réponse 3</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre troisiéme reponse">
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Votre troisiéme reponse"name="reponse3">
         </div>
         <div class="form-group form-check" style="margin-top:3%">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="true"name="Choixmultiple">
 
 
             <label class="form-check-label" for="exampleCheck1">Choix multiple</label>
         </div>
 
 
+          <input type="submit" value=" Creer sondage"> 
 
-
-
-
-        <!---  <button type="submit" class="btn btn-primary">  -->
-
-            <a type="button"class="btn btn-primary" href="@Url.Action("ChoixVotant")">
-
-                Créer Sondage
-                </a>
-        
+          
     </form>
 
     <div>
     </div>
     <footer style="margin-top:4%">
-        <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+       <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
 
 

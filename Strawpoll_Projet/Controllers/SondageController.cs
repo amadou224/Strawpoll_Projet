@@ -16,10 +16,14 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage() //(string question, string reponse1, string reponse2, string reponse3,bool choix)
+        public ActionResult CreationSondage(string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
         {
-            //DetailModel sondage = DataAccess.CreerNouveauSondage(question, reponse1, reponse2, reponse3, choix);
-            return View();                         //Creation Sondage avec les questions
+            bool choix = Choixmultiple.GetValueOrDefault(false);
+            DetailModel sondage = new DetailModel(question, reponse1, reponse2, reponse3, choix);
+            creationsondage Sondage = new creationsondage(sondage);
+            int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
+           
+            return RedirectToAction("ChoixVotant",new {idSondage = idSondageCree });                         
         }
 
         public ActionResult ChoixVotant()
@@ -52,7 +56,14 @@ namespace Strawpoll_Projet.Controllers
         {
             return View();
         }
-        
+        public ActionResult FormulaireCreation()
+        {
+            return View();
+        }
+
+
+
+
 
     }
 }
