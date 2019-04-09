@@ -24,23 +24,23 @@
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
     <form style="margin-left:20%; margin-right:20% ; margin-top:2%" )>
 
-        <input class="form-control" type="text" placeholder="Question" readonly>
+        <input class="form-control" type="text" value="@Model.NouvoSondage.Question" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:3%">
 
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Question" />
-            <label class="form-check-label" for="exampleCheck1">reponse1</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse1" /> 
+            <!-- <label class="form-check-label" for="exampleCheck1" >reponse1</label> -->
         </div>
         <div class="form-group form-check" style="margin-top:3%">
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Reponse2</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse2">
+          <!--  <label class="form-check-label" for="exampleCheck1">Reponse2</label> -->
         </div>
         <div class="form-group form-check" style="margin-top:3%">
 
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Reponse3</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse3">
+           <!--- <label class="form-check-label" for="exampleCheck1">Reponse3</label>  -->
         </div>
 
         <input type="submit" value=" VOTE">
