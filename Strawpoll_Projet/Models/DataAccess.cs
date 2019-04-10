@@ -32,8 +32,9 @@ namespace Strawpoll_Projet.Models
 
         }
 
-        // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE
-        public static Sondage PageDeVote (int idSondage)
+        // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE POUR POUVOIR VOTER 
+
+        public static Sondage PageDeVote(int idSondage)
         {
             using (SqlConnection connection = new SqlConnection(ConnectString))
             {
@@ -42,26 +43,22 @@ namespace Strawpoll_Projet.Models
                 command.Parameters.AddWithValue("@idSondage", idSondage);
                 SqlDataReader dataReader = command.ExecuteReader();
                 dataReader.Read();
-                
-                    int id = (int)dataReader["ID"];
-                    string question = (string)dataReader["Questions"];
-                    string reponse1 = (string)dataReader["Reponse1"];
-                    string reponse2 = (string)dataReader["Reponse2"];
-                    string reponse3 = (string)dataReader["Reponse3"];
-                    bool choix = (bool)dataReader["Choix"];
 
-                    Sondage sondage = new Sondage(id,question, reponse1, reponse2, reponse3, choix);
-                    return sondage;
-                
-               
-                
-                    
-                    
-                
+                int id = (int)dataReader["ID"];
+                string question = (string)dataReader["Questions"];
+                string reponse1 = (string)dataReader["Reponse1"];
+                string reponse2 = (string)dataReader["Reponse2"];
+                string reponse3 = (string)dataReader["Reponse3"];
+                bool choix = (bool)dataReader["Choix"];
+
+                Sondage sondage = new Sondage(id, question, reponse1, reponse2, reponse3, choix);
+                return sondage;
             }
-
-
-
         }
-}
+
+        // RECUPERATION DES RESULTATS DE MON SONDAGE 
+
+
+
+    }
 }

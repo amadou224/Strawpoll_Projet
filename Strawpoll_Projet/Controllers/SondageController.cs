@@ -16,7 +16,7 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage( string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
+        public ActionResult CreationSondage( string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) 
         {
             bool choix = Choixmultiple.GetValueOrDefault(false);
             Sondage sondage = new Sondage(0,question, reponse1, reponse2, reponse3, choix);
@@ -26,19 +26,17 @@ namespace Strawpoll_Projet.Controllers
             return RedirectToAction("ChoixVotant",new {idSondage = idSondageCree });                         
         }
 
+        // View récuperation de mon sondage Creer  
         public ActionResult ChoixVotant(int idSondage)
         {
 
             return View(DataAccess.PageDeVote(idSondage));                    
-
-
         }
         
         public ActionResult Vote(int idSondage)
         {
-
             return View(DataAccess.PageDeVote(idSondage));
-            
+           
         }
 
    
