@@ -7,9 +7,9 @@ namespace Strawpoll_Projet.Models
 {
     public class creationsondage
     {
-        public DetailModel NouvoSondage {get; private set;}
+        public Sondage NouvoSondage {get; private set;}
 
-        public creationsondage(DetailModel nouvoSondage)
+        public creationsondage(Sondage nouvoSondage)
         {
             NouvoSondage = nouvoSondage;
         }

@@ -19,7 +19,7 @@ namespace Strawpoll_Projet.Controllers
         public ActionResult CreationSondage( string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
         {
             bool choix = Choixmultiple.GetValueOrDefault(false);
-            DetailModel sondage = new DetailModel(0,question, reponse1, reponse2, reponse3, choix);
+            Sondage sondage = new Sondage(0,question, reponse1, reponse2, reponse3, choix);
             creationsondage Sondage = new creationsondage(sondage);
             int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
            

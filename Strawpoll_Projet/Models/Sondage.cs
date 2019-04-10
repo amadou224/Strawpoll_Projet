@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Strawpoll_Projet.Models
 {
-    public class DetailModel
+    public class Sondage
     {
         public int ID { get; private set; }
         public string Question { get; private set; }
@@ -14,7 +14,7 @@ namespace Strawpoll_Projet.Models
         public string Reponse3 { get; private set; }
         public bool Choix { get; private set; }
 
-        public DetailModel(int iD, string question, string reponse1, string reponse2, string reponse3, bool choix)
+        public Sondage(int iD, string question, string reponse1, string reponse2, string reponse3, bool choix)
         {
             ID = iD;
             Question = question;
