@@ -29,11 +29,11 @@ namespace Strawpoll_Projet.Controllers
         public ActionResult ChoixVotant(int idSondage)
         {
 
-            return View(DataAccess.PageDeVote(idSondage));                     //choix Votant avec les 3 liens
+            return View(DataAccess.PageDeVote(idSondage));                    
 
 
         }
-        // View Vote utiliser cette action pour faire appel a ma vieux cshtml Vote dans le @model 
+        
         public ActionResult Vote(int idSondage)
         {
 
