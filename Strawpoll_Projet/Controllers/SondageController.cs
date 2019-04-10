@@ -16,37 +16,28 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage(int idSondage, string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
+        public ActionResult CreationSondage( string question ,string reponse1 , string reponse2, string reponse3, bool? Choixmultiple) //(
         {
             bool choix = Choixmultiple.GetValueOrDefault(false);
-            DetailModel sondage = new DetailModel(idSondage,question, reponse1, reponse2, reponse3, choix);
+            DetailModel sondage = new DetailModel(0,question, reponse1, reponse2, reponse3, choix);
             creationsondage Sondage = new creationsondage(sondage);
             int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
            
             return RedirectToAction("ChoixVotant",new {idSondage = idSondageCree });                         
         }
 
-        public ActionResult ChoixVotant()
+        public ActionResult ChoixVotant(int idSondage)
         {
-            return View();                       //choix Votant avec les 3 liens
+
+            return View(DataAccess.PageDeVote(idSondage));                     //choix Votant avec les 3 liens
 
 
         }
         // View Vote utiliser cette action pour faire appel a ma vieux cshtml Vote dans le @model 
         public ActionResult Vote(int idSondage)
         {
-               if (DataAccess.PageDeVote(idSondage, out DetailModel sondage))
-                {
-                ConfirmationCreationSondage sondageConfirme = new ConfirmationCreationSondage(sondage);
 
-                   return View(sondageConfirme);  
-                }
-                else 
-                {
-                 string messageErreur ="Problème pour trouver le sondage en BDD";
-                    return RedirectToAction("Erreur",new {messageErreur = messageErreur});
-                }       
-
+            return View(DataAccess.PageDeVote(idSondage));
             
         }
 

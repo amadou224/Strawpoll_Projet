@@ -1,5 +1,5 @@
 ﻿@using Strawpoll_Projet.Models
-@model creationsondage
+@model DetailModel
 @{
     /**/
 
@@ -24,24 +24,57 @@
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
     <form style="margin-left:20%; margin-right:20% ; margin-top:2%" )>
 
-        <input class="form-control" type="text" value="@Model.NouvoSondage.Question" placeholder="" readonly>
+        <input class="form-control" type="text" value="@Model.Question" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:3%">
 
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse1" /> 
-            <!-- <label class="form-check-label" for="exampleCheck1" >reponse1</label> -->
-        </div>
-        <div class="form-group form-check" style="margin-top:3%">
+            <b>
+                @if (Model.Choix == false)
+                {
+                    <div>
+                    <input type="radio" name="choixok" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
+                            </div>
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse2">
-          <!--  <label class="form-check-label" for="exampleCheck1">Reponse2</label> -->
-        </div>
-        <div class="form-group form-check" style="margin-top:3%">
+                    <input type="radio" name="choixok" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
 
 
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="@Model.NouvoSondage.Reponse3">
-           <!--- <label class="form-check-label" for="exampleCheck1">Reponse3</label>  -->
+
+                    <input type="radio" name="choixok" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
+
+
+
+                }
+                else
+                {
+
+
+                    <input type="checkbox" name="choix1" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
+
+                    
+
+                        <input type="checkbox" name="choix2" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
+                 
+               
+
+
+                        <input type="checkbox" name="choix3" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
+                  
+
+                }
+            </b>
+
         </div>
+
+
+
+
+
 
         <input type="submit" value=" VOTE">
 

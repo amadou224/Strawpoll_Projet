@@ -28,39 +28,70 @@ namespace Strawpoll_Projet.Models
                 command.Parameters.AddWithValue("@choix", nouvoSondage.Choix);
                 int idInserer = (int)command.ExecuteScalar();
                 return idInserer;
-
             }
 
         }
         // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE 
-        public static bool PageDeVote(int idSondage, out DetailModel sondage)
+        //public static bool PageDeVote(int idSondage, out DetailModel sondage)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnectString))
+        //    {
+        //        connection.Open();
+        //        SqlCommand command = new SqlCommand("Select Question,Reponse1,Reponse2,Reponse3,Choix FROM Sondage WHERE ID=@idSondage", connection);
+        //        command.Parameters.AddWithValue("@idSondage", idSondage);
+        //        SqlDataReader dataReader = command.ExecuteReader();
+        //        if (dataReader.Read())
+        //        {
+        //            string question = (string)dataReader["Question"];
+        //            string reponse1 = (string)dataReader["Reponse1"];
+        //            string reponse2 = (string)dataReader["Reponse2"];
+        //            string reponse3 = (string)dataReader["Reponse3"];
+        //            bool choix = (bool)dataReader["Choix"];
+
+        //            sondage = new DetailModel(idSondage, question, reponse1, reponse2, reponse3, choix);
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            sondage = null;
+
+        //            return false;
+        //        }
+        //    }
+
+
+
+
+        // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE
+        public static DetailModel PageDeVote (int idSondage)
         {
             using (SqlConnection connection = new SqlConnection(ConnectString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("Select Question,Reponse1,Reponse2,Reponse3,Choix FROM Sondage WHERE ID=@idSondage", connection);
+                SqlCommand command = new SqlCommand("Select * FROM Sondage WHERE ID=@idSondage", connection);
                 command.Parameters.AddWithValue("@idSondage", idSondage);
                 SqlDataReader dataReader = command.ExecuteReader();
-                if (dataReader.Read())
-                {
-                    string question = (string)dataReader["Question"];
+                dataReader.Read();
+                
+                    int id = (int)dataReader["ID"];
+                    string question = (string)dataReader["Questions"];
                     string reponse1 = (string)dataReader["Reponse1"];
                     string reponse2 = (string)dataReader["Reponse2"];
                     string reponse3 = (string)dataReader["Reponse3"];
                     bool choix = (bool)dataReader["Choix"];
 
-                    sondage = new DetailModel(idSondage, question, reponse1, reponse2, reponse3, choix);
-                    return true;
-                }
-                else
-                {
-                    sondage = null;
-
-                    return false;
-                }
+                    DetailModel sondage = new DetailModel(id,question, reponse1, reponse2, reponse3, choix);
+                    return sondage;
+                
+               
+                
+                    
+                    
+                
             }
 
 
+
         }
-    }
+}
 }
