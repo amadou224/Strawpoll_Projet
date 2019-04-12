@@ -22,13 +22,13 @@
 </head>
 <body>
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
-      <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("")"  )>        
+      <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("InsererVoteBDD",new{idSondage=Model.ID})">  <!--Modification pour recuper mon vote-->       
 
         <input class="form-control" type="text" value="@Model.Question" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:3%">
+         
 
 
-           
                 @if (Model.Choix == false)
                 {
                     <div>
@@ -64,7 +64,7 @@
                     </div>
 
                 }
-            
+
 
         </div>
 

@@ -56,10 +56,42 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-        //INSERTION DU VOTE EN BDD 
-        public static void InsertionVoteBDD()
-        {
+        // MODIFICATION 
 
+        public static void InsertionVoteBDD(int ID)            //d'autres parametres a mettre  int NbreVotantRep1)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("UPDATE Sondage SET NbreVotantRep1=NbreVotantRep1+1 WHERE ID=@id", connection);
+              
+                command.Parameters.AddWithValue("@id",ID);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void InsertionVoteBB2(int ID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("UPDATE Sondage SET NbreVotantRep2=NbreVotantRep2+1 WHERE ID=@id", connection);
+                command.Parameters.AddWithValue("@id",ID);
+                command.ExecuteNonQuery();
+                
+            }
+        }
+
+        public static void InsertionVoteBB3(int ID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("UPDATE Sondage SET NbreVotantRep3=NbreVotantRep3+1 WHERE ID=@id", connection);
+                command.Parameters.AddWithValue("@id", ID);
+                command.ExecuteNonQuery();
+
+            }
         }
 
 
