@@ -26,7 +26,7 @@ namespace Strawpoll_Projet.Models
                 command.Parameters.AddWithValue("@rep2", nouvoSondage.Reponse2);
                 command.Parameters.AddWithValue("@rep3", nouvoSondage.Reponse3);
                 command.Parameters.AddWithValue("@choix", nouvoSondage.Choix);
-                int idInserer = (int)command.ExecuteScalar();
+                int idInserer = (int)command.ExecuteScalar(); 
                 return idInserer;
             }
 
@@ -56,8 +56,11 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-        // RECUPERATION DES RESULTATS DE MON SONDAGE 
+        //INSERTION DU VOTE EN BDD 
+        public static void InsertionVoteBDD()
+        {
 
+        }
 
 
     }

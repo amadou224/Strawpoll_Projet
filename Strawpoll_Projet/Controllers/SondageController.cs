@@ -47,9 +47,9 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-        public ActionResult ResultatVote()
+        public ActionResult ResultatVote(int idSondage)
         {
-            return View();
+            return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
         }
 
 
