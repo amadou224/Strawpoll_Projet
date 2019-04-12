@@ -41,7 +41,7 @@ namespace Strawpoll_Projet.Controllers
 
         public ActionResult InserervoteBDD(int idSondage , bool? choix1, bool? choix2, bool? choix3)
         {
-            return RedirectToAction("ResultatVote");
+            return RedirectToAction("ResultatVote");   //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
             // 
         }
       
