@@ -39,7 +39,12 @@ namespace Strawpoll_Projet.Controllers
            
         }
 
-   
+        public ActionResult InserervoteBDD(int idSondage , bool? choix1, bool? choix2, bool? choix3)
+        {
+            return RedirectToAction("ResultatVote");   //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
+            // 
+        }
+      
 
         public ActionResult EnregistrementVote()
         {
@@ -47,9 +52,9 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-        public ActionResult ResultatVote()
+        public ActionResult ResultatVote(int idSondage)
         {
-            return View();
+            return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
         }
 
 

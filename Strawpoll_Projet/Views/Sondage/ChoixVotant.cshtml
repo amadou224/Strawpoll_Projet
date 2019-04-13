@@ -19,20 +19,25 @@
         <h1>VOTRE CHOIX</h1>
     </div>
     <br />   <br />   <br />
-    <form style="margin-right:45%;margin-left:45%" action="@Url.Action("Vote")">
-        <input type="hidden" name="idSondage" value="@Model.ID" />
-        <input style="padding-left:66%;text-align:center" type="submit" value="Vote" class="btn btn-primary" href="@Url.Action("Vote")">
-        <br />
-        <br />
-        <a style="padding-left:43%" type="button" class="btn btn-primary" href="#">RESULTAT</a>
-        <br />
-        <br />
-        <a style="" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">DESACTIVATION</a>
 
+
+    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("Vote",new {idSondage=Model.ID })">VOTE</a>
+
+    <br /> <br />
+
+    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("ResultatVote",new {idSondage=Model.ID })">RESULTAT</a>
+
+
+
+    <br />
+    <br />
+    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">DESACTIVATION</a>
+    <!--
     </form>
+        -->
 
     <footer style="margin-top:20%">
-        <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+        <p style="text-align:center">Copyright &copy; @DateTime.Now.Year \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
