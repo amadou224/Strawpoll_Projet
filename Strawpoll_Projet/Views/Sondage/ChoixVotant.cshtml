@@ -18,23 +18,12 @@
     <div style="text-align:center; margin-top:2%">
         <h1>VOTRE CHOIX</h1>
     </div>
-    <br />   <br />   <br />
-
-
-    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("Vote",new {idSondage=Model.ID })">VOTE</a>
-
+    <br />   <br />
+    <a style="padding-left:40%" href="@Url.Action("Vote",new {idSondage=Model.ID })" target="_self">http://localhost:51606/Sondage/Vote</a>
     <br /> <br />
-
-    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("ResultatVote",new {idSondage=Model.ID })">RESULTAT</a>
-
-
-
-    <br />
-    <br />
-    <a style="padding-left:43%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">DESACTIVATION</a>
-    <!--
-    </form>
-        -->
+    <a style="padding-left:40%" href="@Url.Action("ResultatVote",new {idSondage=Model.ID })" target="_self">http://localhost:51606/Sondage/Resultat</a>
+    <br />  <br />
+    <a style="padding-left:40%" href="@Url.Action("PageDeGarde",new {idSondage=Model.ID })" target="_self">http://localhost:51606/Sondage/Desactivation</a>
 
     <footer style="margin-top:20%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
