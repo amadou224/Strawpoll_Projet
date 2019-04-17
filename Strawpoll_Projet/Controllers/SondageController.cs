@@ -80,7 +80,20 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        
+
+        public ActionResult VoteMultiple( string choix1, string choix2, string choix3, int idSondage)
+        {
+            return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
+        }
+
+
+        public ActionResult VoteSimple(string onechoose, int idSondage)
+        {
+            return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
+        }
+
+
+
 
 
 

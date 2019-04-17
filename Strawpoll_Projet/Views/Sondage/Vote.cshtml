@@ -22,15 +22,18 @@
 </head>
 <body>
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
-      <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("InsererVoteBDD",new{idSondage=Model.ID})">  <!--Modification pour recuper mon vote-->       
-
+     
         <input class="form-control" type="text" value="@Model.Questions" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:3%">
-         
 
 
-                @if (Model.Choix == false)
-                {
+
+            @if (Model.Choix == false)
+
+            {
+                <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteSimple")">
+                    <!--Modification pour recuper mon vote-->
+
                     <div>
                         <input type="radio" name="onechoose" class="form-check-input" id="exampleCheck1" />
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
@@ -43,9 +46,13 @@
                         <input type="radio" name="onechoose" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
                     </div>
-                }
-                else
-                {
+                    <input  type="hidden" name="idSondage" value="@Model.ID"/>
+                    <input type="submit" value=" VOTE">
+                </form>
+            }
+            else
+            {
+                <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteMultiple")">
                     <div>
 
                         <input type="checkbox" name="choix1" class="form-check-input" id="exampleCheck1" />
@@ -62,15 +69,19 @@
                         <input type="checkbox" name="choix3" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
                     </div>
+                    <input type="hidden" name="idSondage" value="@Model.ID" />
+                    <input type="submit" value=" VOTE">
 
-                }
+                </form>
+
+            }
 
 
         </div>
 
-        <input type="submit" value=" VOTE" >
+     
 
-                   </form>        
+                         
 
     <footer style="margin-top:20%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
