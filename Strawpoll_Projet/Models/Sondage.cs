@@ -23,9 +23,24 @@ namespace Strawpoll_Projet.Models
             Reponse3 = reponse3;
             Choix = choix;
         }
+
+
+        public static int Nouvo(string variable)
+        {
+            int choix = 0;
+            if (variable != null)
+            {
+                choix = 1;
+            }
+            return choix;
+
+        }
+
     }
 
 
-    
+
+
+
 
 }

@@ -31,6 +31,25 @@ namespace Strawpoll_Projet.Models
             }
 
         }
+        // CREATION D'UN SONDAGE ET INSERTION EN BASE DE DONNEES
+
+        public static void CreerNouveauResultat(int idSondage)
+
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("Insert into Resultat(NbreVoteReponse1,NbreVoteReponse2,NbreVoteReponse3,NbreVotant,FK_Id_sondage) VALUES (@rep1,@rep2,@rep3,@nbreTotal,@fkidS)", connection);
+                command.Parameters.AddWithValue("@rep1", 0);
+                command.Parameters.AddWithValue("@rep2", 0);
+                command.Parameters.AddWithValue("@rep3", 0);
+                command.Parameters.AddWithValue("@nbreTotal", 0);
+                command.Parameters.AddWithValue("@fkidS", idSondage);
+
+                command.ExecuteNonQuery();
+            }
+
+        }
 
         /*  public static int CreerNouveauSondage(Sondage nouvoSondage)
 
@@ -56,7 +75,7 @@ namespace Strawpoll_Projet.Models
 
 
 
-        // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE POUR POUVOIR VOTER 
+        // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE POUR POUVOIR VOTER Recuperation de l'id du sondage 
 
         public static Sondage PageDeVote(int idSondage)
         {
@@ -81,41 +100,21 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-        // MODIFICATION 
+        // MODIFICATION Recuperation des choix de mon vote et mettre en base de donnees et allez au resultat 
 
-        public static void InsertionVoteBDD(int ID)            //d'autres parametres a mettre  int NbreVotantRep1)
+        public static void InsertionVoteBDD(int idSondage, int choix1, int choix2, int choix3)
         {
+            int nombreVoteTotal = choix1 + choix2 + choix3;
             using (SqlConnection connection = new SqlConnection(ConnectString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE Resultat SET NbreVoteReponse1=NbreVoteReponse1+1 WHERE Id_Resultat=@id", connection);
-
-                command.Parameters.AddWithValue("@id", ID);
+                SqlCommand command = new SqlCommand("UPDATE Resultat SET NbreVoteReponse1 = NbreVoteReponse1 + @ch1, NbreVoteReponse2 = NbreVoteReponse2 + @ch2, NbreVoteReponse3 = NbreVoteReponse3 + @ch3, NbreVotant=NbreVotant+@nombreTotal WHERE FK_Id_sondage = @id", connection);
+                command.Parameters.AddWithValue("@ch1", choix1);
+                command.Parameters.AddWithValue("@ch2", choix2);
+                command.Parameters.AddWithValue("@ch3", choix3);
+                command.Parameters.AddWithValue("@nombreTotal", nombreVoteTotal);
+                command.Parameters.AddWithValue("@id", idSondage);
                 command.ExecuteNonQuery();
-            }
-        }
-
-        public static void InsertionVoteBDD2(int ID)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE Resultat SET NbreVoteReponse2=NbreVoteReponse2+1 WHERE Id_Resultat=@id", connection);
-                command.Parameters.AddWithValue("@id", ID);
-                command.ExecuteNonQuery();
-
-            }
-        }
-
-        public static void InsertionVoteBB3(int ID)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE Resultat  SET NbreVoteReponse3=NbreVoteReponse3+1 WHERE Id_Resultat=@id", connection);
-                command.Parameters.AddWithValue("@id", ID);
-                command.ExecuteNonQuery();
-
             }
         }
 
