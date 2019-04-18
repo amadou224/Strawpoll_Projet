@@ -31,7 +31,7 @@ namespace Strawpoll_Projet.Models
             }
 
         }
-        // CREATION D'UN SONDAGE ET INSERTION EN BASE DE DONNEES
+        //  INSERTION EN BASE DE DONNEES TABLE RESULTAT DONNEES DU VOTE 
 
         public static void CreerNouveauResultat(int idSondage)
 
@@ -50,29 +50,6 @@ namespace Strawpoll_Projet.Models
             }
 
         }
-
-        /*  public static int CreerNouveauSondage(Sondage nouvoSondage)
-
-          {
-              using (SqlConnection connection = new SqlConnection(ConnectString))
-              {
-                  connection.Open();
-                  SqlCommand command = new SqlCommand("Insert into Sondage(Questions,Reponse1,Reponse2,Reponse3,Choix,NbreVotantRep1,NbreVotantRep2,NbreVotantRep3,NbreTotalVotant) OUTPUT Inserted.ID VALUES (@question,@rep1,@rep2,@rep3,@choix,@nbreRep1,@nbreRep2,@nbreRep3,@nbreTotal)", connection);
-                  command.Parameters.AddWithValue("@question", nouvoSondage.Question);
-                  command.Parameters.AddWithValue("@rep1", nouvoSondage.Reponse1);
-                  command.Parameters.AddWithValue("@rep2", nouvoSondage.Reponse2);
-                  command.Parameters.AddWithValue("@rep3", nouvoSondage.Reponse3);
-                  command.Parameters.AddWithValue("@choix", nouvoSondage.Choix);
-                  command.Parameters.AddWithValue("@nbreRep1",nouvoSondage.NbreVotantRep1);
-                  command.Parameters.AddWithValue("@nbreRep2", nouvoSondage.NbreVotantRep2);
-                  command.Parameters.AddWithValue("@nbreRep3", nouvoSondage.NbreVotantRep3);
-                  command.Parameters.AddWithValue("@nbreTotal", nouvoSondage.NbreTotalVotant);
-                  int idInserer = (int)command.ExecuteScalar();
-                  return idInserer;
-              }
-
-          }         */
-
 
 
         // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE POUR POUVOIR VOTER Recuperation de l'id du sondage 
@@ -100,7 +77,7 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-        // MODIFICATION Recuperation des choix de mon vote et mettre en base de donnees et allez au resultat 
+        // MODIFICATION TABLE RESULTAT & MISE A JOUR DE LA TABLE
 
         public static void InsertionVoteBDD(int idSondage, int choix1, int choix2, int choix3)
         {

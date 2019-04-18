@@ -1,21 +1,31 @@
-﻿
+﻿@using Strawpoll_Projet.Models
+@model Sondage
 @{
     ViewBag.Title = "ResultatVote";
 }
 
-<h2>ResultatVote</h2>
+<h2>RESULTAT DU VOTE</h2>
+    <br /><br />
+<div>
 
-<h5>Resultat choix 1</h5>
+    <label class="form-check-label" for="exampleCheck1">@Model.Questions</label>
+</div> <br />
+<label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
 <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 </div>
-<h5>Resultat choix 2</h5>
+<label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
 <div class="progress">
 
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 </div>
-<h5>Resultat choix 3</h5>
+<label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
 <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 </div>
-   
+        
+
+<footer style="margin-top:20%">
+    <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+
+</footer>
