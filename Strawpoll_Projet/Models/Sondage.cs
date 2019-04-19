@@ -24,7 +24,7 @@ namespace Strawpoll_Projet.Models
             Choix = choix;
         }
 
-
+        // GESTION DU CHOIX MULTIPLE OU PAS 
         public static int Nouvo(string variable)
         {
             int choix = 0;
@@ -35,6 +35,10 @@ namespace Strawpoll_Projet.Models
             return choix;
 
         }
+
+
+        // FONCTION POUR LA GESTION DE MA BARRE DE PREOGRESSION DANS MA VUE RESULTAT 
+
 
     }
 

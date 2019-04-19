@@ -14,4 +14,8 @@ namespace Strawpoll_Projet.Models
             NouvoSondage = nouvoSondage;
         }
     }
+
+    // 
+
+
 }

@@ -28,18 +28,6 @@ namespace Strawpoll_Projet.Controllers
             return RedirectToAction("ChoixVotant", new { idSondage = idSondageCree });
         }
 
-        /* public ActionResult CreationSondage(string question, string reponse1, string reponse2, string reponse3, bool? Choixmultiple, int nbreVotantRep1,int nbreVotantRep2, int nbreVotantRep3, int nbreTotalVotant )
-         {
-             bool choix = Choixmultiple.GetValueOrDefault(false);
-             Sondage sondage = new Sondage(0, question, reponse1, reponse2, reponse3, choix,0,0,0,0);
-             creationsondage Sondage = new creationsondage(sondage);
-             int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
-
-             return RedirectToAction("ChoixVotant", new { idSondage = idSondageCree });
-         }
-         */
-
-
 
         // View récuperation de mon sondage Creer  
         public ActionResult ChoixVotant(int idSondage)
@@ -67,10 +55,19 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
+     
         public ActionResult ResultatVote(int idSondage)
         {
             return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
         }
+
+
+
+
+
+
+
+
 
 
         public ActionResult ContactUs()
@@ -93,11 +90,11 @@ namespace Strawpoll_Projet.Controllers
 
         public ActionResult VoteSimple(string onechoose, int idSondage)
         {
-            Resultat model = new Resultat(0, 0, 0, 0,idSondage);
+            Resultat model = new Resultat(0, 0, 0, 0, idSondage);
             switch (onechoose)
-                {
+            {
                 case "Choix1":
-                    model.NbreVoteReponse1 =1;
+                    model.NbreVoteReponse1 = 1;
                     break;
 
                 case "Choix2":
@@ -108,7 +105,7 @@ namespace Strawpoll_Projet.Controllers
                     break;
 
             }
-            DataAccess.InsertionVoteBDD(idSondage, model.NbreVoteReponse1,model.NbreVoteReponse2, model.NbreVoteReponse3 );
+            DataAccess.InsertionVoteBDD(idSondage, model.NbreVoteReponse1, model.NbreVoteReponse2, model.NbreVoteReponse3);
             return RedirectToAction("ResultatVote", new { IDSondage = idSondage });        // Resultat vote 
         }
 

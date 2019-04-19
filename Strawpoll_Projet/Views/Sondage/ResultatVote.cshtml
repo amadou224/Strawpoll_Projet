@@ -1,31 +1,59 @@
-﻿@using Strawpoll_Projet.Models
+﻿
+
+@using Strawpoll_Projet.Models
 @model Sondage
+
+
 @{
     ViewBag.Title = "ResultatVote";
 }
 
-<h2>RESULTAT DU VOTE</h2>
-    <br /><br />
-<div>
+@{
+    Layout = null;
+}
 
-    <label class="form-check-label" for="exampleCheck1">@Model.Questions</label>
-</div> <br />
-<label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
-<div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-</div>
-<label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
-<div class="progress">
+<!DOCTYPE html>
 
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-</div>
-<label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
-<div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-</div>
-        
 
-<footer style="margin-top:20%">
-    <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</footer>
+    <title>contact</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+
+    <br />
+    <h1  style="margin-left:30%; margin-right:30%">RESULTAT DU VOTE</h1>
+    <br />
+    <br />
+   
+        <div>
+
+            <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Questions</label>
+        </div>
+        <br />
+        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse1</label> <br />
+        <div class="progress" style="margin-left:30%; margin-right:30%">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div><br />
+        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse2</label> <br />
+        <div class="progress" style="margin-left:30%; margin-right:30%">
+
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div><br />
+        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse3</label> <br />
+        <div class="progress" style="margin-left:30%; margin-right:30%" >
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
+       
+
+        <footer style="margin-top:17%">
+            <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+
+        </footer>
+
+</body>
+</html>

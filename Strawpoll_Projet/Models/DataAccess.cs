@@ -10,12 +10,8 @@ namespace Strawpoll_Projet.Models
     {
         const string ConnectString = @"Server=.\SQLExpress;Database=Strawpoll;Integrated Security=true";
 
-
-
         // CREATION D'UN SONDAGE ET INSERTION EN BASE DE DONNEES
-
         public static int CreerNouveauSondage(Sondage nouvoSondage)
-
         {
             using (SqlConnection connection = new SqlConnection(ConnectString))
             {
