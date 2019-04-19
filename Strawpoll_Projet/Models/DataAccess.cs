@@ -102,7 +102,7 @@ namespace Strawpoll_Projet.Models
 
                 SqlCommand command = new SqlCommand(@"SELECT * FROM Sondage,Resultats WHERE ID = @id and FK_Id_sondage = @id", connection);
 
-                command.Parameters.AddWithValue("@ID", idSondage);
+                command.Parameters.AddWithValue("@id", idSondage);
                 SqlDataReader reader = command.ExecuteReader();
 
                 reader.Read();
