@@ -23,10 +23,10 @@
 <body>
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
      
-        <input class="form-control" type="text" value="@Model.Questions" placeholder="" readonly>
-        <div class="form-group form-check" style="margin-top:3%">
+        <input class="form-control" type="text" style="margin-left:2%; margin-right:20%" value="@Model.Questions" placeholder="" readonly>
+        <div class="form-group form-check" style="margin-top:5%">
 
-
+           
 
             @if (Model.Choix == false)
 
@@ -37,16 +37,16 @@
                     <div>
                         <input type="radio" name="onechoose" value="Choix1" class="form-check-input" id="exampleCheck1" />
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
-                    </div>
+                    </div><br />
                     <div>
                         <input type="radio" name="onechoose" value="Choix2" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
-                    </div>
+                    </div><br />
                     <div>
                         <input type="radio" name="onechoose" value="Choix3" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
-                    </div>
-                    <input  type="hidden" name="idSondage" value="@Model.ID"/>
+                    </div><br />
+                    <input type="hidden" name="idSondage" value="@Model.ID" />
                     <input type="submit" value=" VOTE">
                 </form>
             }
@@ -58,18 +58,18 @@
                         <input type="checkbox" name="choix1" class="form-check-input" id="exampleCheck1" />
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
                     </div>
-
+                    <br />
                     <div>
                         <input type="checkbox" name="choix2" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleheck1">@Model.Reponse2</label>
 
                     </div>
-
+                    <br />
                     <div>
                         <input type="checkbox" name="choix3" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
                     </div>
-                    <input type="hidden" name="idSondage" value="@Model.ID" />
+                    <input type="hidden" name="idSondage" value="@Model.ID" /><br />
                     <input type="submit" value=" VOTE">
 
                 </form>

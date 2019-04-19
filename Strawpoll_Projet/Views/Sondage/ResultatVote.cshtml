@@ -26,34 +26,35 @@
 <body>
 
     <br />
-    <h1  style="margin-left:30%; margin-right:30%">RESULTAT DU VOTE</h1>
+    <h1 style="margin-left:30%; margin-right:30%">RESULTAT DU VOTE</h1>
     <br />
     <br />
+
+    <div>
+
+        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Questions</label>
+    </div>
+    <br />
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse1</label> <br />
+    <div class="progress" style="margin-left:30%; margin-right:30%">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    </div><br />
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse2</label> <br />
+    <div class="progress" style="margin-left:30%; margin-right:30%">
+
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    </div><br />
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse3</label> <br />
+    <div class="progress" style="margin-left:30%; margin-right:30%">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    </div><br /><br />
+   <input type="submit" style="margin-left:30%" value=" RE-VOTE"> <input type="submit"style="margin-left:27%" value=" ACCUEIL">
    
-        <div>
 
-            <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Questions</label>
-        </div>
-        <br />
-        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse1</label> <br />
-        <div class="progress" style="margin-left:30%; margin-right:30%">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-        </div><br />
-        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse2</label> <br />
-        <div class="progress" style="margin-left:30%; margin-right:30%">
+    <footer style="margin-top:14%">
+        <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-        </div><br />
-        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse3</label> <br />
-        <div class="progress" style="margin-left:30%; margin-right:30%" >
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-        </div>
-       
-
-        <footer style="margin-top:17%">
-            <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
-
-        </footer>
+    </footer>
 
 </body>
 </html>
