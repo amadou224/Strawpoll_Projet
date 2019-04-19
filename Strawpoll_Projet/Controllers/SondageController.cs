@@ -16,10 +16,10 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
-        public ActionResult CreationSondage(string question, string reponse1, string reponse2, string reponse3, bool? Choixmultiple)
+        public ActionResult CreationSondage(string question, string reponse1, string reponse2, string reponse3, bool? Choixmultiple,bool actifOuPasSondage)
         {
             bool choix = Choixmultiple.GetValueOrDefault(false);
-            Sondage sondage = new Sondage(0, question, reponse1, reponse2, reponse3, choix);
+            Sondage sondage = new Sondage(0, question, reponse1, reponse2, reponse3, choix,actifOuPasSondage);
             creationsondage Sondage = new creationsondage(sondage);
 
             int idSondageCree = DataAccess.CreerNouveauSondage(sondage);
@@ -61,11 +61,21 @@ namespace Strawpoll_Projet.Controllers
             return View(DataAccess.PageDeVote(idSondage));           // Resultat vote 
         }
 
+      
 
+        // **************************************************** gestion pour ma vue result
 
+        public ActionResult PageResultat(int idSondage)
+        {
+            Resultat Sondage = DataAccess.RecupererResultatEnBdd(idSondage);
+            Sondage.PoucentageRep1 = Resultat.PourcentageDesVotes (Sondage.NbreVoteReponse1, Sondage.NbreTotalVotant);
+            Sondage.PoucentageRep2 = Resultat.PourcentageDesVotes(Sondage.NbreVoteReponse2, Sondage.NbreTotalVotant);
+            Sondage.PoucentageRep3 =Resultat.PourcentageDesVotes(Sondage.NbreVoteReponse3, Sondage.NbreTotalVotant);
+         
+            return View(Sondage);
+        }
 
-
-
+        //********************************* 
 
 
 

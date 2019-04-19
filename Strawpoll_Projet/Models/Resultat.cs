@@ -14,7 +14,15 @@ namespace Strawpoll_Projet.Models
         public int NbreTotalVotant { get; private set; }
         public int FK_Id_sondage{ get; private set; }
 
-        
+        // GESTION DES POURCENTAGES 
+
+
+        public int PoucentageRep1 { get; set; }
+        public int PoucentageRep2 { get; set; }
+        public int PoucentageRep3 { get; set; }
+       
+
+
         public Resultat( int nbreVoteReponse1, int nbreVoteReponse2, int nbreVoteReponse3, int nbreTotalVotant, int fK_Id_sondage)
         {
             
@@ -23,6 +31,23 @@ namespace Strawpoll_Projet.Models
             NbreVoteReponse3 = nbreVoteReponse3;
             NbreTotalVotant = nbreTotalVotant;
             FK_Id_sondage = fK_Id_sondage;
+        }
+
+                  // FONCTION  pourcentage 
+        public static int PourcentageDesVotes(int nombreVote, int NombreDevotant)
+        {
+            int resultat;
+            if (NombreDevotant == 0)
+            {
+
+                resultat = 0;
+            }
+            else
+            {
+                resultat = nombreVote * 100 / (NombreDevotant);
+            }
+
+            return resultat;
         }
     }
 }

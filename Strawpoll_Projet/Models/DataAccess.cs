@@ -92,5 +92,48 @@ namespace Strawpoll_Projet.Models
         }
 
 
+        // RECUPERATION RESULTAT BDD POUR RESULTAT SONDAGE 
+        //*************************************************************************
+        public static Resultat RecupererResultatEnBdd(int idSondage)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(@"SELECT * FROM Sondage,Resultats WHERE ID = @id and FK_Id_sondage = @id", connection);
+
+                command.Parameters.AddWithValue("@ID", idSondage);
+                SqlDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+
+                int idsondage = reader.GetInt32(0);
+                string question = reader.GetString(1);
+                string reponse1= reader.GetString(2);
+                string reponse2 = reader.GetString(3);
+                string reponse3 = reader.GetString(4);
+                bool  choix = reader.GetBoolean(5);             
+                bool actifOuPasSondage = reader.GetBoolean(6);
+               
+                int nbreRep1 = reader.GetInt32(7);
+                int nbrevoterep2 = reader.GetInt32(8);
+                int nbrevoteRep3 = reader.GetInt32(9);
+              
+                int nombreDeVotant = reader.GetInt32(10);
+                int fk_id_sondage = reader.GetInt32(11);
+
+
+
+
+                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPasSondage); 
+                Resultat vote = new Resultat (nbreRep1, nbrevoterep2, nbrevoteRep3, nombreDeVotant,fk_id_sondage);
+
+
+                return vote;
+
+            }
+        }
+        //*************************************************************************************
+
     }
 }

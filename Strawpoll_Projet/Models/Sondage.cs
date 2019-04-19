@@ -13,8 +13,9 @@ namespace Strawpoll_Projet.Models
         public string Reponse2 { get; private set; }
         public string Reponse3 { get; private set; }
         public bool Choix { get; private set; }
+        public bool ActiveSondage { get; private set; }
 
-        public Sondage(int iD, string questions, string reponse1, string reponse2, string reponse3, bool choix)
+        public Sondage(int iD, string questions, string reponse1, string reponse2, string reponse3, bool choix, bool actifOuPas)
         {
             ID = iD;
             Questions = questions;
@@ -22,6 +23,7 @@ namespace Strawpoll_Projet.Models
             Reponse2 = reponse2;
             Reponse3 = reponse3;
             Choix = choix;
+            ActiveSondage = actifOuPas;
         }
 
         // GESTION DU CHOIX MULTIPLE OU PAS 
@@ -37,7 +39,7 @@ namespace Strawpoll_Projet.Models
         }
 
 
-        // FONCTION POUR LA GESTION DE MA BARRE DE PREOGRESSION DANS MA VUE RESULTAT 
+       
 
 
     }
