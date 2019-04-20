@@ -1,9 +1,6 @@
 ﻿
-
 @using Strawpoll_Projet.Models
-@model Sondage
-
-
+@model Resultat
 
 @{
     ViewBag.Title = "ResultatVote";
@@ -33,24 +30,37 @@
 
     <div>
 
-        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Questions</label>
+        <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Questions</label>
     </div>
 
-    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse1</label> <br />
+
+
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Reponse1</label> <input type="text" readonly class="form-control-plaintext text-dark  col pourcentageVote" value=" @(Model.PoucentageRep1) %"> <br />
     <div class="progress" style="margin-left:30%; margin-right:30%">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.PoucentageRep1)" aria-valuemin="0" aria-valuemax="100" style="width: @(Model.PoucentageRep1)%"></div>
     </div><br />
-    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse2</label> <br/>
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Reponse2</label> <br />
     <div class="progress" style="margin-left:30%; margin-right:30%">
 
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-    </div><br />
-    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Reponse3</label> <br />
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.PoucentageRep2)" aria-valuemin="0" aria-valuemax="100" style="width: @(Model.PoucentageRep2)%"></div>
+    </div> </div> <input type="text" readonly class="form-control-plaintext text-dark  col pourcentageVote" value=" @(Model.PoucentageRep2) %"><br /><br />
+    <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Reponse3</label> <br />
     <div class="progress" style="margin-left:30%; margin-right:30%">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-    </div><br /><br />
-   <input type="submit" style="margin-left:30%" value=" RE-VOTE"> <input type="submit"style="margin-left:27%" value=" ACCUEIL">
-   
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@(Model.PoucentageRep3)" aria-valuemin="0" aria-valuemax="100" style="width:@(Model.PoucentageRep3)%"></div>
+    </div><br /> </div> <input type="text" readonly class="form-control-plaintext text-dark  col pourcentageVote" value=" @(Model.PoucentageRep3) %"><br /><br />
+    <div class="form-group row">
+        <h2 class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext text-center" value="@Model.NbreTotalVotant Votes">
+        </h2>
+    </div>
+
+    <!----
+    <input type="submit" action="@Url.Action("VoteSimple")" value=" VOTER">
+    <input type="submit" style="margin-left:27%" value=" ACCUEIL">
+    <input type="submit" style="margin-left:30%" value="VOTER">  <a href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})" class="btn col  btn-primary  ">Voter</a>
+    <input type="submit" style="margin-left:27%" value=" ACCUEIL" <a href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})" class="btn col  btn-primary  ">Accueil></a>
+    <input type="submit" style="margin-left:30%" value="VOTER"> <input type="submit" style="margin-left:27%" value=" ACCUEIL">
+     -->
 
     <footer style="margin-top:14%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>

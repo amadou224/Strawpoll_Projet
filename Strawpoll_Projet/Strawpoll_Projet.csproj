@@ -111,6 +111,7 @@
     <Compile Include="Models\creationsondage.cs" />
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\Resultat.cs" />
+    <Compile Include="Models\ResultatVote.cs" />
     <Compile Include="Models\Sondage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

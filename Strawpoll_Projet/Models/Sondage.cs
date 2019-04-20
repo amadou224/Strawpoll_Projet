@@ -15,7 +15,7 @@ namespace Strawpoll_Projet.Models
         public bool Choix { get; private set; }
         public bool ActiveSondage { get; private set; }
 
-        public Sondage(int iD, string questions, string reponse1, string reponse2, string reponse3, bool choix, bool actifOuPas)
+        public Sondage(int iD, string questions, string reponse1, string reponse2, string reponse3, bool choix)
         {
             ID = iD;
             Questions = questions;
@@ -23,9 +23,18 @@ namespace Strawpoll_Projet.Models
             Reponse2 = reponse2;
             Reponse3 = reponse3;
             Choix = choix;
-            ActiveSondage = actifOuPas;
+            ActiveSondage = false;
         }
-
+        public Sondage(int iD, string questions, string reponse1, string reponse2, string reponse3, bool choix, bool activeSondage)
+        {
+            ID = iD;
+            Questions = questions;
+            Reponse1 = reponse1;
+            Reponse2 = reponse2;
+            Reponse3 = reponse3;
+            Choix = choix;
+            ActiveSondage = activeSondage;
+        }
         // GESTION DU CHOIX MULTIPLE OU PAS 
         public static int Nouvo(string variable)
         {

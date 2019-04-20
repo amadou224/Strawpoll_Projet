@@ -16,12 +16,13 @@ namespace Strawpoll_Projet.Models
             using (SqlConnection connection = new SqlConnection(ConnectString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("Insert into Sondage(Questions,Reponse1,Reponse2,Reponse3,Choix) OUTPUT Inserted.ID VALUES (@question,@rep1,@rep2,@rep3,@choix)", connection);
+                SqlCommand command = new SqlCommand("Insert into Sondage(Questions,Reponse1,Reponse2,Reponse3,Choix,ActiveSondage) OUTPUT Inserted.ID VALUES (@question,@rep1,@rep2,@rep3,@choix,@nonActif)", connection);
                 command.Parameters.AddWithValue("@question", nouvoSondage.Questions);
                 command.Parameters.AddWithValue("@rep1", nouvoSondage.Reponse1);
                 command.Parameters.AddWithValue("@rep2", nouvoSondage.Reponse2);
                 command.Parameters.AddWithValue("@rep3", nouvoSondage.Reponse3);
                 command.Parameters.AddWithValue("@choix", nouvoSondage.Choix);
+                command.Parameters.AddWithValue("@nonActif", nouvoSondage.ActiveSondage);
                 int idInserer = (int)command.ExecuteScalar();
                 return idInserer;
             }
@@ -66,9 +67,10 @@ namespace Strawpoll_Projet.Models
                 string reponse2 = (string)dataReader["Reponse2"];
                 string reponse3 = (string)dataReader["Reponse3"];
                 bool choix = (bool)dataReader["Choix"];
+                bool actifOuPas = (bool)dataReader["ActiveSondage"];
 
 
-                Sondage sondage = new Sondage(id, question, reponse1, reponse2, reponse3, choix);
+                Sondage sondage = new Sondage(id, question, reponse1, reponse2, reponse3, choix,actifOuPas);
                 return sondage;
             }
         }
@@ -92,7 +94,7 @@ namespace Strawpoll_Projet.Models
         }
 
 
-        // RECUPERATION RESULTAT BDD POUR RESULTAT SONDAGE 
+        // RECUPERATION RESULTAT BDD POUR RESULTAT SONDAGE  !!!!!!!
         //*************************************************************************
         public static Resultat RecupererResultatEnBdd(int idSondage)
         {
@@ -100,36 +102,40 @@ namespace Strawpoll_Projet.Models
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand(@"SELECT * FROM Sondage,Resultats WHERE ID = @id and FK_Id_sondage = @id", connection);
+                SqlCommand command = new SqlCommand(@"SELECT * FROM Sondage,Resultat WHERE ID = @id and FK_Id_sondage = @id", connection);
 
                 command.Parameters.AddWithValue("@id", idSondage);
                 SqlDataReader reader = command.ExecuteReader();
 
                 reader.Read();
+                
+                int idsondage =(int) reader["ID"];
+                string question = (string)reader["Questions"];
+                string reponse1 = (string)reader["Reponse1"];
+                string reponse2 = (string)reader["Reponse2"];
+                string reponse3 = (string)reader["Reponse3"];
+                bool choix = (bool)reader["Choix"];
+                bool actifOuPas = (bool)reader["ActiveSondage"];
 
-                int idsondage = reader.GetInt32(0);
-                string question = reader.GetString(1);
-                string reponse1= reader.GetString(2);
-                string reponse2 = reader.GetString(3);
-                string reponse3 = reader.GetString(4);
-                bool  choix = reader.GetBoolean(5);             
-                bool actifOuPasSondage = reader.GetBoolean(6);
-               
-                int nbreRep1 = reader.GetInt32(7);
-                int nbrevoterep2 = reader.GetInt32(8);
-                int nbrevoteRep3 = reader.GetInt32(9);
               
-                int nombreDeVotant = reader.GetInt32(10);
-                int fk_id_sondage = reader.GetInt32(11);
+               
+                int nbreRep1 = (int)reader["NbreVoteReponse1"];
+                
+                int nbrevoterep2 = (int)reader["NbreVoteReponse2"];
+                int nbrevoteRep3 = (int)reader["NbreVoteReponse3"];
+
+                int nombreDeVotant = (int)reader["NbreVotant"];
+                int fk_id_sondage = (int)reader["FK_Id_sondage"];
 
 
 
 
-                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPasSondage); 
-                Resultat vote = new Resultat (nbreRep1, nbrevoterep2, nbrevoteRep3, nombreDeVotant,fk_id_sondage);
 
+                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPas); 
+                Resultat resultat = new Resultat (sondage,nbreRep1, nbrevoterep2, nbrevoteRep3, nombreDeVotant,fk_id_sondage);
+               // ResultatVote vote = new ResultatVote(sondage, resultat);
 
-                return vote;
+                return resultat;
 
             }
         }
