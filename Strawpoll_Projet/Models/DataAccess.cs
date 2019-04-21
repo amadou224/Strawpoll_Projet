@@ -48,7 +48,6 @@ namespace Strawpoll_Projet.Models
 
         }
 
-
         // PAGE VOTE SELECTION DES ELEMENTS DE MON SONDAGE POUR POUVOIR VOTER Recuperation de l'id du sondage 
 
         public static Sondage PageDeVote(int idSondage)
@@ -70,7 +69,7 @@ namespace Strawpoll_Projet.Models
                 bool actifOuPas = (bool)dataReader["ActiveSondage"];
 
 
-                Sondage sondage = new Sondage(id, question, reponse1, reponse2, reponse3, choix,actifOuPas);
+                Sondage sondage = new Sondage(id, question, reponse1, reponse2, reponse3, choix, actifOuPas);
                 return sondage;
             }
         }
@@ -93,9 +92,8 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-
         // RECUPERATION RESULTAT BDD POUR RESULTAT SONDAGE  !!!!!!!
-        //*************************************************************************
+
         public static Resultat RecupererResultatEnBdd(int idSondage)
         {
             using (SqlConnection connection = new SqlConnection(ConnectString))
@@ -108,38 +106,29 @@ namespace Strawpoll_Projet.Models
                 SqlDataReader reader = command.ExecuteReader();
 
                 reader.Read();
-                
-                int idsondage =(int) reader["ID"];
+
+                int idsondage = (int)reader["ID"];
                 string question = (string)reader["Questions"];
                 string reponse1 = (string)reader["Reponse1"];
                 string reponse2 = (string)reader["Reponse2"];
                 string reponse3 = (string)reader["Reponse3"];
                 bool choix = (bool)reader["Choix"];
                 bool actifOuPas = (bool)reader["ActiveSondage"];
-
-              
-               
                 int nbreRep1 = (int)reader["NbreVoteReponse1"];
-                
                 int nbrevoterep2 = (int)reader["NbreVoteReponse2"];
                 int nbrevoteRep3 = (int)reader["NbreVoteReponse3"];
-
                 int nombreDeVotant = (int)reader["NbreVotant"];
                 int fk_id_sondage = (int)reader["FK_Id_sondage"];
 
-
-
-
-
-                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPas); 
-                Resultat resultat = new Resultat (sondage,nbreRep1, nbrevoterep2, nbrevoteRep3, nombreDeVotant,fk_id_sondage);
-               // ResultatVote vote = new ResultatVote(sondage, resultat);
-
+                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPas);
+                Resultat resultat = new Resultat(sondage, nbreRep1, nbrevoterep2, nbrevoteRep3, nombreDeVotant, fk_id_sondage);
                 return resultat;
 
             }
         }
-        //*************************************************************************************
+        // REQUETE DESACTIVATION SONDAGE 
+
+       
 
     }
 }
