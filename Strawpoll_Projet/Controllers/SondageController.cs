@@ -121,5 +121,11 @@ namespace Strawpoll_Projet.Controllers
             return RedirectToAction("ResultatVote", new { IDSondage = idSondage }); 
         }
 
+
+        // GESTION POUR SUPPRESSION 
+        public ActionResult SupprimerSondage()
+        {
+            return View();
+        }
     }
 }
