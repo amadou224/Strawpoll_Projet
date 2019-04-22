@@ -148,15 +148,16 @@ namespace Strawpoll_Projet.Models
                 bool actifOuPas = (bool)reader["ActiveSondage"];
 
 
-                Sondage sondage = new Sondage(idSondage, question, reponse1, reponse2, reponse3, choix, actifOuPas);
+                Sondage sondage = new Sondage(idsondage, question, reponse1, reponse2, reponse3, choix, actifOuPas);
                 return sondage;
 
             }
+        }
 
             // REQUETE SQL POUR SAVOIR L'ETAT DU SONDAGE EN BDD 
 
 
-            /*
+           
             public static void  EtatDuSondageMiseAjour(Sondage sondage)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectString))
@@ -167,7 +168,7 @@ namespace Strawpoll_Projet.Models
                     command.ExecuteNonQuery();                  
                 }
 
-            }   */        
-        }
+            }         
+        
     }
 }

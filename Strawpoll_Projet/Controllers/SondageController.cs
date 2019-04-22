@@ -11,10 +11,15 @@ namespace Strawpoll_Projet.Controllers
     public class SondageController : Controller
     {
         // GET: Sondage
+
+            //PAGE D'ACCEUIL 
         public ActionResult PageDeGarde()
-        {                                           //PAGE D'ACCEUIL 
+        {                                        
             return View();
         }
+
+
+        // CREATION SONDAGE
 
         public ActionResult CreationSondage(string question, string reponse1, string reponse2, string reponse3, bool? Choixmultiple)
         {
@@ -30,7 +35,8 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-        // View récuperation de mon sondage Creer  
+        // VUE RECUPERATION DE MON SONDAGE CREER 
+
         public ActionResult ChoixVotant(int idSondage)
         {
 
@@ -43,17 +49,15 @@ namespace Strawpoll_Projet.Controllers
 
         }
 
+
+         //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
+            
         public ActionResult InserervoteBDD(int idSondage, bool? choix1, bool? choix2, bool? choix3)
         {
-            return RedirectToAction("ResultatVote");   //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
-            // 
+            return RedirectToAction("ResultatVote");  
+
         }
 
-
-        public ActionResult EnregistrementVote()
-        {
-            return View();
-        }
 
 
 
@@ -62,7 +66,7 @@ namespace Strawpoll_Projet.Controllers
             Resultat sondage = DataAccess.RecupererResultatEnBdd(idSondage);
             sondage.PourcentageDesVotes();
 
-            return View(sondage);        // Resultat vote 
+            return View(sondage);      
         }
 
         public ActionResult ContactUs()
@@ -105,10 +109,21 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-        // GESTION POUR SUPPRESSION 
-        public ActionResult SupprimerSondage()
+        // GESTION POUR DESACTIVER SON SONDAGE 
+
+        public ActionResult SupprimerSondage(int idSondage)
         {
-            return View();
+            Sondage sondage = DataAccess.DesactiverSondage(idSondage);
+            if (sondage.ActiveSondage == false)
+            {
+                DataAccess.EtatDuSondageMiseAjour(sondage);
+                return View(sondage);
+            }
+            else 
+            {
+                return RedirectToAction("SupprimerSondage", new { IdSondage = idSondage });
+            }
         }
+
     }
 }
