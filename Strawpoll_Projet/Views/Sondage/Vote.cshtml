@@ -16,14 +16,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>contact</title>
+    <title>VOTE</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
      
-        <input class="form-control" type="text" style="margin-left:2%; margin-right:20%" value="@Model.Questions" placeholder="" readonly>
+        <input class="form-control" type="text" style="margin-right:20% ; margin-left:20%" value="@Model.Questions" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:5%">
 
            
@@ -32,7 +32,7 @@
 
             {
                 <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteSimple")">
-                    <!--Modification pour recuper mon vote-->
+                    <!--Modification pour recuperer mon vote-->
 
                     <div>
                         <input type="radio" name="onechoose" value="Choix1" class="form-check-input" id="exampleCheck1" />
@@ -83,7 +83,7 @@
 
                          
 
-    <footer style="margin-top:20%">
+    <footer style="margin-top:13%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
     </footer>

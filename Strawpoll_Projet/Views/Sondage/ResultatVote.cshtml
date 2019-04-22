@@ -17,22 +17,22 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>contact</title>
+    <title>Resultat</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 </head>
 <body>
 
     <br />
     <h1 style="margin-left:30%; margin-right:30%">RESULTAT DU VOTE</h1>
-    <br />
 
 
     <div>
 
         <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Questions</label>
     </div>
-    <br />
+  
 
 
     <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Reponse1</label>
@@ -69,9 +69,11 @@
     </div>
 
 
-    <div>      
+    <div style="align-items:initial">
+       
         <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})">VOTER</a><br /><br />
-        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})">ACCUEIL</a>
+        <!--- <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})">ACCUEIL</a> -->
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("ChoixVotant", new { idSondage = Model.Vote.ID})">RETOUR-LIEN</a>
     </div>
 
     <!----
@@ -82,10 +84,14 @@
     <input type="submit" style="margin-left:30%" value="VOTER"> <input type="submit" style="margin-left:27%" value=" ACCUEIL">
      -->
 
-    <footer  style="margin-top:1%">
+    <footer style="margin-top:1%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
 
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

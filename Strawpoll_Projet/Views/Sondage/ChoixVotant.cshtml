@@ -24,10 +24,12 @@
     <br /> <br />
     <a style="padding-left:40%" href="@Url.Action("ResultatVote",new {idSondage=Model.ID })" target="_self">@Url.Action("ResultatVote", new { idSondage = Model.ID })</a>
     <br />  <br />
-    <a style="padding-left:40%" href="@Url.Action("PageDeGarde",new {idSondage=Model.ID })" target="_self">@Url.Action("DesactiverSondage", new { idSondage = Model.ID })</a>
-
+    <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+    <B style="color:blue;padding-left:40%">A GARDER EN LIEU SUR POUR DESACTIVER LE SONDAGE </B>
+    <a style="padding-left:40% ;color:red" href="@Url.Action("SupprimerSondage",new {idSondage=Model.ID })" target="_self">@Url.Action("DesactiverSondage", new { idSondage = Model.ID })</a>
+   
     <footer style="margin-top:20%">
-       <!---- PageDeGarde -->
+        <!---- PageDeGarde -->
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -128,7 +128,51 @@ namespace Strawpoll_Projet.Models
         }
         // REQUETE DESACTIVATION SONDAGE 
 
-       
+        public static Sondage DesactiverSondage(int idSondage)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectString))
+            {
+                connection.Open();
 
+                SqlCommand command = new SqlCommand(@"SELECT * FROM Sondage,Resultat WHERE ID = @idSond and FK_Id_sondage = @idSond", connection);
+                command.Parameters.AddWithValue("@idSond", idSondage);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                int idsondage = (int)reader["ID"];
+                string question = (string)reader["Questions"];
+                string reponse1 = (string)reader["Reponse1"];
+                string reponse2 = (string)reader["Reponse2"];
+                string reponse3 = (string)reader["Reponse3"];
+                bool choix = (bool)reader["Choix"];
+                bool actifOuPas = (bool)reader["ActiveSondage"];
+
+
+                Sondage sondage = new Sondage(idSondage, question, reponse1, reponse2, reponse3, choix, actifOuPas);
+                return sondage;
+
+            }
+
+
+            // REQUETE SQL POUR SAVOIR L'ETAT DU SONDAGE EN BDD 
+
+            public static void EtatDuSondageMiseAjour(Sondage sondage)
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectString))
+                {
+
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand("UPDATE Sondage SET ActiveSondage = 1  WHERE ID= @idSond ", connection);
+
+
+                    command.Parameters.AddWithValue("@idSond", sondage.ID);
+
+
+                    command.ExecuteNonQuery();                  
+                }
+
+            }
+        }
     }
 }
