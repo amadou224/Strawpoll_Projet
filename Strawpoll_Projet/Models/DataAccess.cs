@@ -74,7 +74,7 @@ namespace Strawpoll_Projet.Models
             }
         }
 
-        // MODIFICATION TABLE RESULTAT & MISE A JOUR DE LA TABLE
+        // MODIFICATION TABLE RESULTAT & MISE A JOUR DE LA TABLE 
 
         public static void InsertionVoteBDD(int idSondage, int choix1, int choix2, int choix3)
         {
