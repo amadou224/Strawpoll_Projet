@@ -18,13 +18,15 @@
 <body>
     <br /><br />
     <div>
-        <h2 style="text-align:center"> SONDAGE DESACTIVE </h2>
+        <h2 style="text-align:center">Le  SONDAGE a ete DESACTIVE</h2>
+        <p>Retourner a l'acceuil ou a la page Resultat</p>
     </div>
 
     <div>
         <br /><br />
 
       <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a>
+      <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("ResultatVote", new { idSondage = Model.ID })">RESULTAT</a>
     </div>
 
    

@@ -26,7 +26,7 @@
         <input class="form-control" type="text" style="margin-right:20% ; margin-left:20%" value="@Model.Questions" placeholder="" readonly>
         <div class="form-group form-check" style="margin-top:5%">
 
-           
+
 
             @if (Model.Choix == false)
 
@@ -48,6 +48,7 @@
                     </div><br />
                     <input type="hidden" name="idSondage" value="@Model.ID" />
                     <input type="submit" value=" VOTE">
+
                 </form>
             }
             else
@@ -75,7 +76,23 @@
                 </form>
 
             }
-
+            <form>
+                <div class="row">
+                    <p class="col">   </p>
+                    <div class="col">
+                        <fieldset style="text-align:center">
+                            <a href="@Url.Action("PageDeGarde")" class="btn btn-primary textall">Accueil</a>
+                        </fieldset>
+                    </div>
+                    <p class="col">   </p>
+                    <div class="col">
+                        <fieldset style="text-align:center">
+                            <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn btn-primary  ">Résultat</a>
+                        </fieldset>
+                    </div>
+                    <p class="col">   </p>
+                </div>
+            </form>
 
         </div>
 

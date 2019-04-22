@@ -133,6 +133,10 @@
     <Content Include="Views\Shared\DipositionGenerale.cshtml" />
     <Content Include="Views\Sondage\EnregistrementVote.cshtml" />
     <Content Include="Views\Sondage\SupprimerSondage.cshtml" />
+    <Content Include="Views\Sondage\ImpossibleDevoter.cshtml" />
+    <Content Include="Views\Sondage\DejaVoter.cshtml" />
+    <Content Include="Views\Sondage\SondageDejaSupprimer.cshtml" />
+    <Content Include="Views\Sondage\ConfirmationSuppression.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

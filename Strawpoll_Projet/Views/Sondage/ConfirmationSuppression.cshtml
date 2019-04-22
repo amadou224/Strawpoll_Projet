@@ -1,0 +1,30 @@
+﻿
+@using Strawpoll_Projet.Models
+@model Sondage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirmatiton Suppression</title>
+</head>
+<body>
+    <div>
+        <p>Voulez vous Vraiment desactivé le sondage ? </p>
+
+    </div>
+
+    <div>
+        <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("SupprimerSondage", new { idSondage = Model.ID })">VALIDER</a>
+        <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn col btn-primary  ">Résultat</a>
+    </div>
+
+
+
+</body>
+</html>

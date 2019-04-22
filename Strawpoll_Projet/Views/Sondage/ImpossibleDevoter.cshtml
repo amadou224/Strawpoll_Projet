@@ -1,0 +1,29 @@
+﻿@using Strawpoll_Projet.Models
+@model Sondage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ImpossibleDevoter</title>
+</head>
+<body>
+    <div>
+        <p>Vous pouvez plus voter le sondage est désactivé</p>
+
+    </div>
+
+    <div>
+        <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a>
+        <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn col btn-primary  ">Résultat</a>
+    </div>
+
+
+
+</body>
+</html>

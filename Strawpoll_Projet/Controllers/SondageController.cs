@@ -45,13 +45,34 @@ namespace Strawpoll_Projet.Controllers
 
         public ActionResult Vote(int idSondage)
         {
-            return View(DataAccess.PageDeVote(idSondage));
 
+           Sondage model =DataAccess.PageDeVote(idSondage);
+            if (model.ActiveSondage == true)
+            {
+                 return RedirectToAction("ImpossibleDevoter", new { idSondage = idSondage }); 
+            }
+            return View(model);
+
+        }
+         public ActionResult ImpossibleDevoter(int idSondage)
+        {
+            Sondage model = new Sondage(idSondage);
+            return View(model);
+        }
+        public ActionResult DejaVoter(int idSondage)
+        {
+            Sondage model = new Sondage(idSondage);
+            return View(model);
+        }
+        public ActionResult SondageDejaSupprimer(int idSondage)
+        {
+            Sondage model = new Sondage(idSondage);
+            return View(model);
         }
 
 
-         //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
-            
+        //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
+
         public ActionResult InserervoteBDD(int idSondage, bool? choix1, bool? choix2, bool? choix3)
         {
             return RedirectToAction("ResultatVote");  
@@ -78,17 +99,34 @@ namespace Strawpoll_Projet.Controllers
             return View();
         }
 
+
+
         // GESTION POUR LE CHOIX MULTIPLE
         public ActionResult VoteMultiple(string Choix1, string Choix2, string Choix3, int idSondage)
         {
+
+            //////////////////////////////////////////////////////////////////////////
+            if (TestSondagevote(Request.Cookies, idSondage))
+            {
+                return RedirectToAction("DejaVoter", new { idSondage = idSondage });
+            }
+            ////////////////////////////////////////////////////////////////////
             DataAccess.InsertionVoteBDD(idSondage, Sondage.Nouvo(Choix1), Sondage.Nouvo(Choix2), Sondage.Nouvo(Choix3));
+            SaveCookie(idSondage);
             return RedirectToAction("ResultatVote", new { IDSondage = idSondage });
 
         }
 
+
         // GESTION POUR LE CHOIX UNIQUE 
         public ActionResult VoteSimple(string onechoose, int idSondage)
         {
+            //////////////////////////////////////////////////////////////////////////
+            if (TestSondagevote(Request.Cookies, idSondage))
+            {
+                return RedirectToAction("DejaVoter", new { idSondage = idSondage });
+            }
+            ////////////////////////////////////////////////////////////////////
             Resultat model = new Resultat(0, 0, 0, 0, idSondage);
             switch (onechoose)
             {
@@ -105,12 +143,18 @@ namespace Strawpoll_Projet.Controllers
 
             }
             DataAccess.InsertionVoteBDD(idSondage, model.NbreVoteReponse1, model.NbreVoteReponse2, model.NbreVoteReponse3);
+            SaveCookie(idSondage);
             return RedirectToAction("ResultatVote", new { IDSondage = idSondage }); 
         }
 
 
         // GESTION POUR DESACTIVER SON SONDAGE 
 
+        public ActionResult ConfirmationSuppression(int idSondage)
+        {
+            Sondage model = new Sondage(idSondage);
+            return View(model);
+        }
         public ActionResult SupprimerSondage(int idSondage)
         {
             Sondage sondage = DataAccess.DesactiverSondage(idSondage);
@@ -119,11 +163,31 @@ namespace Strawpoll_Projet.Controllers
                 DataAccess.EtatDuSondageMiseAjour(sondage);
                 return View(sondage);
             }
-            else 
+            else
             {
-                return RedirectToAction("SupprimerSondage", new { IdSondage = idSondage });
+                return RedirectToAction("SondageDejaSupprimer", new { IdSondage = idSondage });
             }
         }
 
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public void SaveCookie(int idSondage)
+        {
+            string Votant = Request.UserHostAddress;
+            HttpCookie gestionCookies = new HttpCookie("cook" + idSondage);
+            gestionCookies.Value = "";
+            gestionCookies.Expires = DateTime.MaxValue;
+            this.Response.Cookies.Add(gestionCookies);
+        }
+      
+         
+        public static bool TestSondagevote(HttpCookieCollection cookies, int idSondage)
+        {
+            return cookies["cook" + idSondage] != null;
+        }
+        
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
 }

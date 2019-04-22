@@ -35,6 +35,10 @@ namespace Strawpoll_Projet.Models
             Choix = choix;
             ActiveSondage = activeSondage;
         }
+        public Sondage(int iD)
+        {
+            ID = iD;
+        }
         // GESTION DU CHOIX MULTIPLE OU PAS 
         public static int Nouvo(string variable)
         {
