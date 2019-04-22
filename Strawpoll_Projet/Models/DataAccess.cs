@@ -153,26 +153,21 @@ namespace Strawpoll_Projet.Models
 
             }
 
-
             // REQUETE SQL POUR SAVOIR L'ETAT DU SONDAGE EN BDD 
 
-            public static void EtatDuSondageMiseAjour(Sondage sondage)
+
+            /*
+            public static void  EtatDuSondageMiseAjour(Sondage sondage)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectString))
                 {
-
                     connection.Open();
-
                     SqlCommand command = new SqlCommand("UPDATE Sondage SET ActiveSondage = 1  WHERE ID= @idSond ", connection);
-
-
                     command.Parameters.AddWithValue("@idSond", sondage.ID);
-
-
                     command.ExecuteNonQuery();                  
                 }
 
-            }
+            }   */        
         }
     }
 }

@@ -65,23 +65,6 @@ namespace Strawpoll_Projet.Controllers
             return View(sondage);        // Resultat vote 
         }
 
-
-
-        // **************************************************** gestion pour ma vue result
-        /*
-        public ActionResult PageResultat(int idSondage)
-        {
-           Resultat sondage = DataAccess.RecupererResultatEnBdd(idSondage);
-           sondage.PourcentageDesVotes();           
-         
-            return View(sondage);
-        }
-
-        //********************************* 
-        */
-
-
-
         public ActionResult ContactUs()
         {
             return View();
