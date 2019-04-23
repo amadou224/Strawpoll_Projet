@@ -94,6 +94,8 @@ namespace Strawpoll_Projet.Controllers
         {
             return View();
         }
+
+        // VUE CREATION FORMULAIRE
         public ActionResult FormulaireCreation()
         {
             return View();
@@ -170,7 +172,7 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///  GESTION DU REVOTE UTILISATION COOKIES ////
 
         public void SaveCookie(int idSondage)
         {
@@ -188,6 +190,6 @@ namespace Strawpoll_Projet.Controllers
         }
         
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        
     }
 }

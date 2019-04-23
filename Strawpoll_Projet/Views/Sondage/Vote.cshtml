@@ -22,83 +22,84 @@
 </head>
 <body>
     <h1 style="text-align:center; margin-top:3% "> PAGE DE VOTE DU SONDAGE </h1>
-     
-        <input class="form-control" type="text" style="margin-right:20% ; margin-left:20%" value="@Model.Questions" placeholder="" readonly>
-        <div class="form-group form-check" style="margin-top:5%">
+
+    <input class="form-control" type="text" style="margin-right:20% ; margin-left:20%" value="@Model.Questions" placeholder="" readonly>
+    <div class="form-group form-check" style="margin-top:5%">
 
 
 
-            @if (Model.Choix == false)
+        @if (Model.Choix == false)
 
-            {
-                <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteSimple")">
-                    <!--Modification pour recuperer mon vote-->
+        {
+            <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteSimple")">
+                <!--Modification pour recuperer mon vote-->
 
-                    <div>
-                        <input type="radio" name="onechoose" value="Choix1" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
-                    </div><br />
-                    <div>
-                        <input type="radio" name="onechoose" value="Choix2" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
-                    </div><br />
-                    <div>
-                        <input type="radio" name="onechoose" value="Choix3" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
-                    </div><br />
-                    <input type="hidden" name="idSondage" value="@Model.ID" />
-                    <input type="submit" value=" VOTE">
+                <div>
+                    <input type="radio" name="onechoose" value="Choix1" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
+                </div><br />
+                <div>
+                    <input type="radio" name="onechoose" value="Choix2" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse2</label>
+                </div><br />
+                <div>
+                    <input type="radio" name="onechoose" value="Choix3" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
+                </div><br />
+                <input type="hidden" name="idSondage" value="@Model.ID" />
+                <input type="submit" value=" VOTE">
 
-                </form>
-            }
-            else
-            {
-                <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteMultiple")">
-                    <div>
+            </form>
+        }
+        else
+        {
+            <form style="margin-left:20%; margin-right:20% ; margin-top:2%" method="get" action="@Url.Action("VoteMultiple")">
+                <div>
 
-                        <input type="checkbox" name="choix1" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
-                    </div>
-                    <br />
-                    <div>
-                        <input type="checkbox" name="choix2" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleheck1">@Model.Reponse2</label>
-
-                    </div>
-                    <br />
-                    <div>
-                        <input type="checkbox" name="choix3" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
-                    </div>
-                    <input type="hidden" name="idSondage" value="@Model.ID" /><br />
-                    <input type="submit" value=" VOTE">
-
-                </form>
-
-            }
-            <form>
-                <div class="row">
-                    <p class="col">   </p>
-                    <div class="col">
-                        <fieldset style="text-align:center">
-                            <a href="@Url.Action("PageDeGarde")" class="btn btn-primary textall">Accueil</a>
-                        </fieldset>
-                    </div>
-                    <p class="col">   </p>
-                    <div class="col">
-                        <fieldset style="text-align:center">
-                            <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn btn-primary  ">Résultat</a>
-                        </fieldset>
-                    </div>
-                    <p class="col">   </p>
+                    <input type="checkbox" name="choix1" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse1</label>
                 </div>
+                <br />
+                <div>
+                    <input type="checkbox" name="choix2" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleheck1">@Model.Reponse2</label>
+
+                </div>
+                <br />
+                <div>
+                    <input type="checkbox" name="choix3" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">@Model.Reponse3</label>
+                </div><br />
+                      <b>
+                          <input type="hidden" name="idSondage" value="@Model.ID" /><br /><br />
+                          <input style="background-color:greenyellow;text-decoration:solid" type="submit" value="VOTE">
+                      </b><br /><br />
+                <a href="@Url.Action("PageDeGarde")" class="btn btn-primary textall">ACCUEIL</a>
+                <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn btn-primary  ">RESULTAT</a>
+
             </form>
 
-        </div>
+        }
+          <!---- <form>
+               
+                        <div class="row">
+                            <p class="col">   </p>
+                            <div class="col">
+                                <fieldset style="text-align:center">
+                                    <a href="@Url.Action("PageDeGarde")" class="btn btn-primary textall">Accueil</a>
+                                </fieldset>
+                            </div>
+                            <p class="col">   </p>
+                            <div class="col">
+                                <fieldset style="text-align:center">
+                                    <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn btn-primary  ">Résultat</a>
+                                </fieldset>
+                            </div>
+                            <p class="col">   </p>
+                        </div>
+</form> -->
 
-     
-
-                         
+    </div>
 
     <footer style="margin-top:13%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>

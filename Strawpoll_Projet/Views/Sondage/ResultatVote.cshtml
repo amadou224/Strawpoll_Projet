@@ -71,18 +71,9 @@
 
     <div style="align-items:initial">
        
-        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})">VOTER</a><br /><br />
-        <!--- <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})">ACCUEIL</a> -->
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})">VOTER</a><br /><br />        
         <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})">ACCUEIL</a>
     </div>
-
-    <!----
-    <input type="submit" action="@Url.Action("VoteSimple")" value=" VOTER">
-    <input type="submit" style="margin-left:27%" value=" ACCUEIL">
-    <input type="submit" style="margin-left:30%" value="VOTER">  <a href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})" class="btn col  btn-primary  ">Voter</a>
-    <input type="submit" style="margin-left:27%" value=" ACCUEIL" <a href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})" class="btn col  btn-primary  ">Accueil></a>
-    <input type="submit" style="margin-left:30%" value="VOTER"> <input type="submit" style="margin-left:27%" value=" ACCUEIL">
-     -->
 
     <footer style="margin-top:1%">
         <p style="text-align:center">Copyright &copy; @DateTime.Now.Year  \BAH-AMADOU-BAILO\ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>

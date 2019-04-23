@@ -14,16 +14,22 @@
     <title>DeajVoter</title>
 </head>
 <body>
+    <h1 style="text-align:center;text-decoration-line:underline">"MESSAGE"</h1><br />
     <div>
-        <p>Vous avez déjà  voter </p>
+
+        <h3 style="text-align:center">VOUS AVEZ DEJA  VOTER!! </h3>
+        <h4 style="text-align:center">MERCI. </h4>
 
     </div>
 
     <div>
-        <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a>
-        <a href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn col btn-primary  ">Résultat</a>
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a><br /><br />
+        <a style="margin-left:30%;margin-right:30%" href="@Url.Action("ResultatVote", new { idSondage = Model.ID })" class="btn col btn-primary  ">RESULTAT</a>
     </div>
+    <footer style="margin-top:20%">
 
+        <p style="text-align:center">Copyright &copy; @DateTime.Now.Year \  BAH AMADOU BAILO \ SONDAGE-CCI CAMPUS COLMAR ALSACE </p>
+    </footer>
 
 
 </body>

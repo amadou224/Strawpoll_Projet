@@ -16,20 +16,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
-    <br /><br />
+    <br />
+    <h1 style="text-align:center;text-decoration-line:underline">"MESSAGE"</h1><br />
     <div>
-        <h2 style="text-align:center">Le  SONDAGE a ete DESACTIVE</h2>
-        <p>Retourner a l'acceuil ou a la page Resultat</p>
+        <h3 style="text-align:center">Le Sondage a été désactivé</h3>
+       
     </div>
 
-    <div>
-        <br /><br />
 
-      <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a>
-      <a style="margin-left:50% ;margin-right:50%" type="button" class="btn btn-primary" href="@Url.Action("ResultatVote", new { idSondage = Model.ID })">RESULTAT</a>
+    <div>
+      
+
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde")">ACCUEIL</a> <br /><br />
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("ResultatVote", new { idSondage = Model.ID })">RESULTAT</a>
     </div>
 
-   
+
 
 
 
