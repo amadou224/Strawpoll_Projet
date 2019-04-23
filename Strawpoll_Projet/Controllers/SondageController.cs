@@ -95,8 +95,6 @@ namespace Strawpoll_Projet.Controllers
             return View(sondage);      
         }
 
-
-
         public ActionResult ContactUs()
         {
             return View();
@@ -108,8 +106,6 @@ namespace Strawpoll_Projet.Controllers
         {
             return View();
         }
-
-
 
         // GESTION POUR LE CHOIX MULTIPLE
         public ActionResult VoteMultiple(string Choix1, string Choix2, string Choix3, int idSondage)
