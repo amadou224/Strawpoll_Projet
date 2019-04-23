@@ -44,7 +44,13 @@ namespace UnitTestProject1
         {
             Sondage test5 = new Sondage(1, "question", "rep1", "rep2", "rep3", false);
             Assert.IsFalse(test5.Reponse3 == "", "Il faut une deuxième reponse");
+        }
 
+        [TestMethod]
+        public void TestMethod6()
+        {
+            Sondage test6 = new Sondage(1, "question", "rep1", "rep2", "rep3", false);
+            Assert.IsTrue(test6.Choix==false, "faites choix");
         }
 
 
