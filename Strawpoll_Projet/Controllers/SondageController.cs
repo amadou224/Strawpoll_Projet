@@ -79,8 +79,6 @@ namespace Strawpoll_Projet.Controllers
             return View(model);
         }
 
-
-
         //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
 
         public ActionResult InserervoteBDD(int idSondage, bool? choix1, bool? choix2, bool? choix3)
@@ -88,9 +86,6 @@ namespace Strawpoll_Projet.Controllers
             return RedirectToAction("ResultatVote");  
 
         }
-
-
-
 
         public ActionResult ResultatVote(int idSondage)
         {
@@ -108,8 +103,6 @@ namespace Strawpoll_Projet.Controllers
         }
 
 
-
-
         // VUE CREATION FORMULAIRE
         public ActionResult FormulaireCreation()
         {
@@ -122,12 +115,12 @@ namespace Strawpoll_Projet.Controllers
         public ActionResult VoteMultiple(string Choix1, string Choix2, string Choix3, int idSondage)
         {
 
-            //////////////////////////////////////////////////////////////////////////
+           
             if (TestSondagevote(Request.Cookies, idSondage))
             {
                 return RedirectToAction("DejaVoter", new { idSondage = idSondage });
             }
-            ////////////////////////////////////////////////////////////////////
+          
             DataAccess.InsertionVoteBDD(idSondage, Sondage.Nouvo(Choix1), Sondage.Nouvo(Choix2), Sondage.Nouvo(Choix3));
             SaveCookie(idSondage);
             return RedirectToAction("ResultatVote", new { IDSondage = idSondage });
@@ -138,12 +131,12 @@ namespace Strawpoll_Projet.Controllers
         // GESTION POUR LE CHOIX UNIQUE 
         public ActionResult VoteSimple(string onechoose, int idSondage)
         {
-            //////////////////////////////////////////////////////////////////////////
+         
             if (TestSondagevote(Request.Cookies, idSondage))
             {
                 return RedirectToAction("DejaVoter", new { idSondage = idSondage });
             }
-            ////////////////////////////////////////////////////////////////////
+           
             Resultat model = new Resultat(0, 0, 0, 0, idSondage);
             switch (onechoose)
             {
@@ -194,19 +187,17 @@ namespace Strawpoll_Projet.Controllers
         public void SaveCookie(int idSondage)
         {
             string Votant = Request.UserHostAddress;
-            HttpCookie gestionCookies = new HttpCookie("cook" + idSondage);
+            HttpCookie gestionCookies = new HttpCookie("gestionCookies" + idSondage);
             gestionCookies.Value = "";
             gestionCookies.Expires = DateTime.MaxValue;
             this.Response.Cookies.Add(gestionCookies);
         }
       
-         
+        
         public static bool TestSondagevote(HttpCookieCollection cookies, int idSondage)
         {
-            return cookies["cook" + idSondage] != null;
-        }
-        
-
+            return cookies["gestionCookies" + idSondage] != null;
+        }       
         
     }
 }

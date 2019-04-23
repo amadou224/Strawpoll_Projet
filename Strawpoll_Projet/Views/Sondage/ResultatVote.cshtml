@@ -32,8 +32,6 @@
 
         <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Questions</label>
     </div>
-  
-
 
     <label class="form-check-label" for="exampleCheck1" style="margin-left:30%; margin-right:30%">@Model.Vote.Reponse1</label>
     <div class="progress" style="margin-left:30%; margin-right:30%">
@@ -70,8 +68,8 @@
 
 
     <div style="align-items:initial">
-       
-        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})">VOTER</a><br /><br />        
+
+        <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("Vote", new { idSondage = Model.Vote.ID})">VOTER</a><br /><br />
         <a style="margin-left:30% ;margin-right:30%" type="button" class="btn btn-primary" href="@Url.Action("PageDeGarde", new { idSondage = Model.Vote.ID})">ACCUEIL</a>
     </div>
 

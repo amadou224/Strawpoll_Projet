@@ -48,18 +48,6 @@ namespace Strawpoll_Projet.Models
                 choix = 1;
             }
             return choix;
-
-        }
-
-
-       
-
-
+        }      
     }
-
-
-
-
-
-
 }

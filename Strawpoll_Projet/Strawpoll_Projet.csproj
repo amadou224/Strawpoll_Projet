@@ -131,7 +131,6 @@
     <Content Include="Views\Sondage\ContactUs.cshtml" />
     <Content Include="Views\Sondage\ResultatVote.cshtml" />
     <Content Include="Views\Shared\DipositionGenerale.cshtml" />
-    <Content Include="Views\Sondage\EnregistrementVote.cshtml" />
     <Content Include="Views\Sondage\SupprimerSondage.cshtml" />
     <Content Include="Views\Sondage\ImpossibleDevoter.cshtml" />
     <Content Include="Views\Sondage\DejaVoter.cshtml" />

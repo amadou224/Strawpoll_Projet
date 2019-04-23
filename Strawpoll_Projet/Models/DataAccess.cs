@@ -155,8 +155,6 @@ namespace Strawpoll_Projet.Models
         }
 
             // REQUETE SQL POUR SAVOIR L'ETAT DU SONDAGE EN BDD 
-
-
            
             public static void  EtatDuSondageMiseAjour(Sondage sondage)
             {
