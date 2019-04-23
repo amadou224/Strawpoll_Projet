@@ -37,11 +37,14 @@ namespace Strawpoll_Projet.Controllers
 
         // VUE RECUPERATION DE MON SONDAGE CREER 
 
+
         public ActionResult ChoixVotant(int idSondage)
         {
 
             return View(DataAccess.PageDeVote(idSondage));
         }
+
+
 
         public ActionResult Vote(int idSondage)
         {
@@ -54,21 +57,28 @@ namespace Strawpoll_Projet.Controllers
             return View(model);
 
         }
+
+
          public ActionResult ImpossibleDevoter(int idSondage)
-        {
+         {
             Sondage model = new Sondage(idSondage);
             return View(model);
-        }
+         }
+
+
         public ActionResult DejaVoter(int idSondage)
         {
             Sondage model = new Sondage(idSondage);
             return View(model);
         }
+
+
         public ActionResult SondageDejaSupprimer(int idSondage)
         {
             Sondage model = new Sondage(idSondage);
             return View(model);
         }
+
 
 
         //GESTION POUR METTRE MON VOTE EN BDD ET ALLER A RESULTAT
@@ -90,10 +100,15 @@ namespace Strawpoll_Projet.Controllers
             return View(sondage);      
         }
 
+
+
         public ActionResult ContactUs()
         {
             return View();
         }
+
+
+
 
         // VUE CREATION FORMULAIRE
         public ActionResult FormulaireCreation()
@@ -157,6 +172,8 @@ namespace Strawpoll_Projet.Controllers
             Sondage model = new Sondage(idSondage);
             return View(model);
         }
+
+
         public ActionResult SupprimerSondage(int idSondage)
         {
             Sondage sondage = DataAccess.DesactiverSondage(idSondage);
