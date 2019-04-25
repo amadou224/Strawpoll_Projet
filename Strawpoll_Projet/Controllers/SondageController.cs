@@ -44,8 +44,6 @@ namespace Strawpoll_Projet.Controllers
             return View(DataAccess.PageDeVote(idSondage));
         }
 
-
-
         public ActionResult Vote(int idSondage)
         {
 
